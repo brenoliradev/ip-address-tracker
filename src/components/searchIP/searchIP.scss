@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+  .size-controler {
+    height: 100vh;
+  }
+  
+.main-wrapper {
+  display: flex;
+
+  justify-content: space-between;
+
+  min-height: 14%;
+  width: 100%;
+
+  z-index: 2;
+
+  form {
+    display: flex;
+
+    padding-right: 1rem;
+    padding-top: 1.5rem;
+  }
+}
+
+.title-img {
+  height: 80px;
+  width: 80px;
+  
+  padding-top: 0.5rem;
+  margin-left: 4rem;
+}
+
+.leaflet-control-container .leaflet-top.leaflet-left { 
+  position: absolute; 
+  top: auto;
+  right: 10px; 
+  bottom: 30px;
+  left: auto; 
+}
+
+@media screen and (max-width: 720px) {
+  .title-img {
+    height: 70px;
+    width: 70px;
+
+    margin-left: 1rem;
+    margin-right: 2rem;
+  }
+}
