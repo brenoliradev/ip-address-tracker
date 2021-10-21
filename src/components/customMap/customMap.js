@@ -1,6 +1,5 @@
 import { MapContainer, TileLayer, Marker, Popup, MapConsumer } from 'react-leaflet';
 import React from 'react';
-import { width } from '@mui/system';
 
 const CustomMap = ({ lat, long }) => {
     
