@@ -1,5 +1,12 @@
-import { MapContainer, TileLayer, Marker, Popup, MapConsumer } from 'react-leaflet';
 import React from 'react';
+import { MapContainer, TileLayer, Marker, Popup, MapConsumer } from 'react-leaflet';
+import * as GeoSearch from 'leaflet-geosearch';
+
+import { OpenStreetMapProvider } from 'leaflet-geosearch';
+const provider = new OpenStreetMapProvider();
+const search = new GeoSearch.GeoSearchControl({
+    provider: new GeoSearch.OpenStreetMapProvider(),
+  })
 
 const CustomMap = ({ lat, long }) => {
     
@@ -16,6 +23,7 @@ const CustomMap = ({ lat, long }) => {
             <MapConsumer>
                 {(map) => {
                     console.log('map center:', map.flyTo([lat, long]))
+                    console.log(map.addControl(search))
                     return null
                 }}
             </MapConsumer>

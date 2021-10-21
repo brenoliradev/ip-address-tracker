@@ -11,6 +11,7 @@ const CallAPI = async (optionalIP) => {
     const res = await axios.request(options)
         .then(function (response) {
                 console.log(response.data.location)
+                console.log("called api")
                 return (response.data);
         }).catch(function (error) {
                 console.error(error);
