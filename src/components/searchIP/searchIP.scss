@@ -41,15 +41,21 @@
   padding-top: 0px;
 }
 
-.leaflet-control-container .leaflet-top.leaflet-left { 
-  position: absolute; 
-  top: auto;
-  left: 15px; 
-  bottom: 30px;
-  right: auto; 
+.leaflet-control-zoom.leaflet-bar.leaflet-control { 
+  position: absolute;
+  left: 95vw;
+  bottom: auto;
+
+  top: 70vh;
 }
 
-@media screen and (min-width: 480px) and (max-width: 720px) {
+// .geosearch {
+//   position: absolute;
+//   margin-left: auto !important;
+//   margin-right: auto !important;
+// }
+
+@media screen and (min-width: 480px) and (max-width: 900px) {
   .title-img {
     height: 70px;
     width: 70px;
@@ -60,8 +66,12 @@
   .button-div {
     display: flex;
   }
-  .leaflet-control-container .leaflet-top.leaflet-left { 
-    right: 3%;
+  .leaflet-control-zoom.leaflet-bar.leaflet-control { 
+    position: absolute;
+    left: 90vw;
+    bottom: auto;
+
+    top: 70vh;
   }
 }
 
@@ -74,8 +84,11 @@
   .title-img {
     display: none;
   }
-  .leaflet-control-container .leaflet-top.leaflet-left {
-    right: 5%;
-    bottom: 5%;
+  .leaflet-control-zoom.leaflet-bar.leaflet-control {
+    position: absolute;
+    left: 90vw;
+    bottom: auto;
+
+    top: 70vh;
   }
 }

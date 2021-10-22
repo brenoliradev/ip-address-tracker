@@ -1,23 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-
-import SettingsSharpIcon from '@mui/icons-material/SettingsSharp';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
-import { Button, TextField } from '@mui/material';
+import { IconButton, TextField } from '@mui/material';
 import { useFormik } from "formik";
 import * as Yup from 'yup'
-
-// Material UI used for Dialog => Settings 
-import Box from '@mui/material/Box';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';    
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import InputLabel from '@mui/material/InputLabel';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import IconButton from '@mui/material/IconButton';
 
 // Files from my project
 import CustomMap from '../customMap/customMap';
@@ -93,7 +79,7 @@ const SearchIP = () => {
         setOpen(false);
     };
 
-    if (method === 'Ip Address') {
+    if (lat !== long) {
         return (
             <div className="size-controler">
                 <div className='main-wrapper'>
@@ -133,46 +119,7 @@ const SearchIP = () => {
                                     }}                                    
                                 />
                             </IconButton>
-                            <IconButton 
-                                style={buttonStyle}
-                                onClick={handleClickOpen}
-                            >   
-                                <SettingsSharpIcon
-                                    style={{
-                                        fontSize: '46px',
-                                        color: '#020202'
-                                    }}                                    
-                                />
-                            </IconButton>
                         </div>
-                        <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
-                            <DialogTitle>Settings</DialogTitle>
-                            <DialogContent>
-                                <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
-                                    <FormControl sx={{ m: 1, minWidth: 240 }}>
-                                    <InputLabel htmlFor="demo-dialog-native">Search Method</InputLabel>
-                                    <Select
-                                        native
-                                        value={method}
-                                        defaultValue="ip"
-                                        onChange={handleChange}
-                                        input={
-                                            <OutlinedInput 
-                                                label="Search Method" 
-                                                id="demo-dialog-native" 
-                                            />
-                                        }
-                                    >
-                                        <option value={'Ip Address'}>Ip Address</option>
-                                        <option value={'City'}>City</option>
-                                    </Select>
-                                    </FormControl>
-                                </Box>
-                                </DialogContent>
-                            <DialogActions>
-                                <Button onClick={handleClose}>Ok</Button>
-                            </DialogActions>
-                        </Dialog>
                     </form>
                 </div>
                 <CustomMap 
@@ -181,83 +128,7 @@ const SearchIP = () => {
                 />
             </div>
         );
-    } else if (method === "City") {
-        return (
-            <div className="size-controler">
-                <div className='main-wrapper'>
-                    <div className='icon-div'>
-                        <a href="https://github.com/lirbre" target="_blank" rel="noreferrer">
-                            <img src="https://www.atelliarte.com.br/wp-content/uploads/2021/06/854878.png"
-                                alt="A map logo"
-                                className="title-img"
-                            />
-                        </a>
-                    </div>
-                    <form 
-                        onSubmit={formik.handleSubmit}
-                        validationSchema={SimpleSchema}
-                    >
-                        <div className="button-div">
-                            <IconButton 
-                                type="submit"
-                                style={buttonStyle}
-                            >
-                                <SearchSharpIcon
-                                    style={{
-                                        fontSize: '44px',
-                                        color: '#020202'
-                                    }}                                    
-                                />
-                            </IconButton>
-                            <IconButton 
-                                style={buttonStyle}
-                                onClick={handleClickOpen}
-                            >   
-                                <SettingsSharpIcon
-                                    style={{
-                                        fontSize: '46px',
-                                        color: '#020202'
-                                    }}                                    
-                                />
-                            </IconButton>
-                        </div>
-                        <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
-                            <DialogTitle>Settings</DialogTitle>
-                            <DialogContent>
-                                <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
-                                    <FormControl sx={{ m: 1, minWidth: 240 }}>
-                                    <InputLabel htmlFor="demo-dialog-native">Search Method</InputLabel>
-                                    <Select
-                                        native
-                                        value={method}
-                                        defaultValue="ip"
-                                        onChange={handleChange}
-                                        input={
-                                            <OutlinedInput 
-                                                label="Search Method" 
-                                                id="demo-dialog-native" 
-                                            />
-                                        }
-                                    >
-                                        <option value={'City'}>City</option>
-                                        <option value={'Ip Address'}>Ip Address</option>
-                                    </Select>
-                                    </FormControl>
-                                </Box>
-                                </DialogContent>
-                            <DialogActions>
-                                <Button onClick={handleClose}>Ok</Button>
-                            </DialogActions>
-                        </Dialog>
-                    </form>
-                </div>
-                <CustomMap 
-                    lat={lat}
-                    long={long}
-                />
-            </div>
-        );
-    } else {
+    }  else {
         return (
             <div className='main-wrapper'>
                 <div className='icon-div'>
@@ -290,17 +161,6 @@ const SearchIP = () => {
                             style={buttonStyle}
                         >
                             <SearchSharpIcon
-                                style={{
-                                    fontSize: '46px',
-                                    color: '#020202'
-                                }}                                    
-                            />
-                        </IconButton>
-                        <IconButton 
-                            style={buttonStyle}
-                            onClick={handleClickOpen}
-                        >   
-                            <SettingsSharpIcon
                                 style={{
                                     fontSize: '46px',
                                     color: '#020202'

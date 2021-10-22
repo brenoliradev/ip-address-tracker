@@ -3,13 +3,14 @@ import { MapContainer, TileLayer, Marker, Popup, MapConsumer } from 'react-leafl
 import * as GeoSearch from 'leaflet-geosearch';
 
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
+
 const provider = new OpenStreetMapProvider();
 const search = new GeoSearch.GeoSearchControl({
     provider: new GeoSearch.OpenStreetMapProvider(),
-  })
+})
 
-const CustomMap = ({ lat, long }) => {
-    
+const CustomMap = ({ lat, long, method }) => {
+
     return (
         <MapContainer 
             center={[lat, long]} 
@@ -24,6 +25,7 @@ const CustomMap = ({ lat, long }) => {
                 {(map) => {
                     console.log('map center:', map.flyTo([lat, long]))
                     console.log(map.addControl(search))
+
                     return null
                 }}
             </MapConsumer>
@@ -31,8 +33,11 @@ const CustomMap = ({ lat, long }) => {
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={[lat, long]}>
+            <Marker 
+                position={[lat, long]}
+            >
                 <Popup>
+                    Here's what you're looking <br/>
                     Thank you for using my project! :)
                 </Popup>
             </Marker>
