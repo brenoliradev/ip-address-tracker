@@ -64,6 +64,8 @@ const SearchIP = () => {
         validationSchema: SimpleSchema,
         onSubmit: (values) => {
             Call(formik.values.optionalIP);
+
+            formik.values.optionalIP = '';
         }
     })
   
